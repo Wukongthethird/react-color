@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React , {useState} from 'react';
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import ColorsHomePage from './ColorsHomePage';
 
-function App() {
+function App({colors}) {
+
+  const [colorsList, setColorsList] = useState(colors)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+     <ColorsHomePage colors={colorsList} />
+     <Routes colors={colorsList}/>
+     </BrowserRouter>
     </div>
   );
 }
+
+App.defaultProps = {
+  colors:[
+    {name:"red" , color:"#FF0000"},
+    {name:"pink" , color:"#FFC0CB"},
+    {name:"green" , color:"#00FF00"}
+  ]
+}
+
 
 export default App;
