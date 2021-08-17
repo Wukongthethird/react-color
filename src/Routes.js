@@ -1,19 +1,20 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import Color from "./Color";
+import ColorForm from "./ColorForm";
 
-function Routes({ colors }) {
+function Routes({ colors, addColor }) {
   return (
     <Switch>
-  
+      <Route exact path="/colors/new">
+       <ColorForm addColor={addColor} />
+      </Route>
+      <Route exact path="/colors/:color" >
+        <Color colors={colors}/>
+      </Route>
       <Redirect to="/colors" />
     </Switch>
   );
 }
-/* <Route path="/colors/new" >
-<ColorForm dogs={dogs}/>
-</Route> */
-/* <Route exact path="/colors/:color" >
-<Color color={colors}/>
-</Route> */
 
 export default Routes;

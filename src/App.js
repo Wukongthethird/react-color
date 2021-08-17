@@ -5,14 +5,22 @@ import Routes from "./Routes";
 import ColorsHomePage from './ColorsHomePage';
 
 function App({colors}) {
+  const [colorsList, setColorsList] = useState(colors);
 
-  const [colorsList, setColorsList] = useState(colors)
+  function addColor(newColor) {
+    console.log("NEWCOLOR", newColor);
+    setColorsList((c) => ({
+      ...c,
+      newColor
+    }))
+    console.log("COLORS", colorsList);
+  }
 
   return (
     <div className="App">
      <BrowserRouter>
-     <ColorsHomePage colors={colorsList} />
-     <Routes colors={colorsList}/>
+      <ColorsHomePage colors={colorsList} />
+      <Routes colors={colorsList} addColor={addColor}/>
      </BrowserRouter>
     </div>
   );
