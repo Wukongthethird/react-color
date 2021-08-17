@@ -8,13 +8,10 @@ function App({colors}) {
   const [colorsList, setColorsList] = useState(colors);
 
   function addColor(newColor) {
-    console.log("NEWCOLOR", newColor);
-    setColorsList((c) => ({
-      ...c,
-      newColor
-    }))
-    console.log("COLORS", colorsList);
+    console.log(newColor)
+    setColorsList( (c) => ([...c, newColor]))
   }
+  console.log(colorsList)
 
   return (
     <div className="App">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ColorForm({ addColor }) {
-  const [color, setColor] = useState({});
+  const [color, setColor] = useState({name:"" , color:""});
   const history = useHistory();
 
   function handleChange(evt) {
